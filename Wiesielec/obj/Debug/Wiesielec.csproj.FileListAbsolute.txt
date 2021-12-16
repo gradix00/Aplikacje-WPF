@@ -1,0 +1,15 @@
+F:\Unity\projekty\Aplikacje-WPF\Wiesielec\bin\Debug\Wiesielec.exe.config
+F:\Unity\projekty\Aplikacje-WPF\Wiesielec\bin\Debug\Wiesielec.exe
+F:\Unity\projekty\Aplikacje-WPF\Wiesielec\bin\Debug\Wiesielec.pdb
+F:\Unity\projekty\Aplikacje-WPF\Wiesielec\obj\Debug\Wiesielec.csproj.AssemblyReference.cache
+F:\Unity\projekty\Aplikacje-WPF\Wiesielec\obj\Debug\MainWindow.g.cs
+F:\Unity\projekty\Aplikacje-WPF\Wiesielec\obj\Debug\App.g.cs
+F:\Unity\projekty\Aplikacje-WPF\Wiesielec\obj\Debug\Wiesielec_MarkupCompile.cache
+F:\Unity\projekty\Aplikacje-WPF\Wiesielec\obj\Debug\Wiesielec_MarkupCompile.lref
+F:\Unity\projekty\Aplikacje-WPF\Wiesielec\obj\Debug\MainWindow.baml
+F:\Unity\projekty\Aplikacje-WPF\Wiesielec\obj\Debug\Wiesielec.g.resources
+F:\Unity\projekty\Aplikacje-WPF\Wiesielec\obj\Debug\Wiesielec.Properties.Resources.resources
+F:\Unity\projekty\Aplikacje-WPF\Wiesielec\obj\Debug\Wiesielec.csproj.GenerateResource.cache
+F:\Unity\projekty\Aplikacje-WPF\Wiesielec\obj\Debug\Wiesielec.csproj.CoreCompileInputs.cache
+F:\Unity\projekty\Aplikacje-WPF\Wiesielec\obj\Debug\Wiesielec.exe
+F:\Unity\projekty\Aplikacje-WPF\Wiesielec\obj\Debug\Wiesielec.pdb
