@@ -30,14 +30,21 @@ namespace Wiesielec
         public MainWindow()
         {
             InitializeComponent();
+            StartGame();
+        }
+
+        private void StartGame()
+        {
             pass = RandomWord();
             passTxt.Content = pass;
 
             currentlyPass = new char[pass.Length];
-            for(int i = 0; i < currentlyPass.Length; i++)
+            for (int i = 0; i < currentlyPass.Length; i++)
             {
-                currentlyPass[i] = '_';
+                if (pass[i] != ' ') currentlyPass[i] = '_';
+                else currentlyPass[i] = ' ';
             }
+            Console.WriteLine($"sum: {currentlyPass.Length}");
 
             RefreshPasswordAndStickman();
         }
@@ -50,12 +57,19 @@ namespace Wiesielec
 
         private void RefreshPasswordAndStickman()
         {
+            passTxt.Content = null;
+            string word = "";
             for(int index = 0; index < pass.Length; index++)
             {
-                passTxt.Content = null;
                 passTxt.Content += $" {currentlyPass[index]}";
+                word += $"{currentlyPass[index]}";             
             }
-            Console.WriteLine($"length: {pass.Length}");
+
+            if (word == pass)
+            {
+                MessageBox.Show($"Hasło to: {pass}", "Świetnie! Udało ci się odgadnąć hasło!");
+                StartGame();
+            }
         }
 
         private void CheckLetter(object sender, RoutedEventArgs e)
@@ -66,7 +80,7 @@ namespace Wiesielec
                 bool succes = false;
                 for (int i = 0; i < pass.Length; i++)
                 {
-                    if (letter == pass[i] && currentlyPass[i] != letter)
+                    if (letter == pass[i] && currentlyPass[i] != letter && currentlyPass[i] == '_')
                     {
                         currentlyPass[i] = letter;
                         succes = true;

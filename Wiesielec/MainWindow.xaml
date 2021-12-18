@@ -8,7 +8,7 @@
         Title="Wisielec | Adrian Puchalski" Height="450" Width="800">
     <Grid Background="#FF00AEFF">
         <Label Content="Wisielec by Adrian Puchalski" HorizontalAlignment="Left" Height="64" VerticalAlignment="Top" Width="316" TextOptions.TextHintingMode="Animated" FontSize="20"/>
-        <Label Content="&lt;tu wyświetli się hasło&gt;" HorizontalAlignment="Left" Height="64" Margin="146,106,0,249" VerticalAlignment="Center" Width="480" RenderTransformOrigin="0.488,-0.346" FontSize="30" x:Name="passTxt"/>
+        <Label Content="&lt;tu wyświetli się hasło&gt;" HorizontalAlignment="Left" Height="64" Margin="10,106,0,249" VerticalAlignment="Center" Width="772" RenderTransformOrigin="0.488,-0.346" FontSize="30" x:Name="passTxt" HorizontalContentAlignment="Center"/>
         <TextBox HorizontalAlignment="Left" Height="60" Margin="308,196,0,163" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="182" MaxLength="1" x:Name="txtBox"/>
         <Button Content="Sprawdź" HorizontalAlignment="Left" Height="68" Margin="308,275,0,0" VerticalAlignment="Top" Width="182" FontSize="20" Click="CheckLetter"/>
     </Grid>
