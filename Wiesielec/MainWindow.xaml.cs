@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,7 +22,8 @@ namespace Wiesielec
     public partial class MainWindow : Window
     {
         #region variable
-        private string[] words = { "kabanos", "ala ma kota", "komputer jest przyszłością" };
+        private string[] words = { "kabanos", "ala ma kota", "komputer jest przyszłością", 
+            "dominik ma małego", "adiomi games", "kto się lubi ten się czubi" };
         private char[] currentlyPass;
         private string pass;
         private int mistake = 0;
@@ -35,6 +37,10 @@ namespace Wiesielec
 
         private void StartGame()
         {
+            mistake = 0;
+            Uri sourceImg = new Uri($"Resources/Images/blank.png", UriKind.Relative);
+            img.Source = new BitmapImage(sourceImg);
+
             pass = RandomWord();
             passTxt.Content = pass;
 
@@ -44,7 +50,6 @@ namespace Wiesielec
                 if (pass[i] != ' ') currentlyPass[i] = '_';
                 else currentlyPass[i] = ' ';
             }
-            Console.WriteLine($"sum: {currentlyPass.Length}");
 
             RefreshPasswordAndStickman();
         }
@@ -70,36 +75,45 @@ namespace Wiesielec
                 MessageBox.Show($"Hasło to: {pass}", "Świetnie! Udało ci się odgadnąć hasło!");
                 StartGame();
             }
+
+            bool lose = mistake < 10 ? true : false;
+            if (lose)
+            {
+                Uri sourceImg = new Uri($"Resources/Images/stickman{mistake}.png", UriKind.Relative);
+                img.Source = new BitmapImage(sourceImg);
+            }
+            else
+            {
+                Uri sourceImg = new Uri($"Resources/Images/stickman10.png", UriKind.Relative);
+                MessageBox.Show("przegrałeś życie, klinknij ok, aby zacząc od nowa.", "Przegrana!");
+                StartGame();
+            }
         }
 
         private void CheckLetter(object sender, RoutedEventArgs e)
         {
-            if (txtBox.Text != "")
-            {
-                var letter = char.ToLower(txtBox.Text[0]);
-                bool succes = false;
-                for (int i = 0; i < pass.Length; i++)
-                {
-                    if (letter == pass[i] && currentlyPass[i] != letter && currentlyPass[i] == '_')
-                    {
-                        currentlyPass[i] = letter;
-                        succes = true;
-                    }
-                }
+            var letter = Convert.ToChar((sender as Button).Content.ToString()[0]);
 
-                if (!succes)
-                {
-                    //stickman refresh mistake
-                }
-
-                //call to refresh data
-                RefreshPasswordAndStickman();
-                txtBox.Text = null;
-            }
-            else
+            bool succes = false;
+            for (int i = 0; i < pass.Length; i++)
             {
-                MessageBox.Show("wpisz jakąś litere!", "Nie wpisano litery!");
+                if (letter == pass[i] && currentlyPass[i] != letter && currentlyPass[i] == '_')
+                {
+                    currentlyPass[i] = letter;
+                    succes = true;
+                }
             }
+
+            if (!succes)
+            {
+                //stickman refresh mistake
+                mistake++;
+            }
+
+            //call to refresh data
+            RefreshPasswordAndStickman();
         }
+
+        private void RestartGame(object sender, RoutedEventArgs e) => StartGame();
     }
 }

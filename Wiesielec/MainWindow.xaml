@@ -8,8 +8,38 @@
         Title="Wisielec | Adrian Puchalski" Height="450" Width="800">
     <Grid Background="#FF00AEFF">
         <Label Content="Wisielec by Adrian Puchalski" HorizontalAlignment="Left" Height="64" VerticalAlignment="Top" Width="316" TextOptions.TextHintingMode="Animated" FontSize="20"/>
-        <Label Content="&lt;tu wyświetli się hasło&gt;" HorizontalAlignment="Left" Height="64" Margin="10,106,0,249" VerticalAlignment="Center" Width="772" RenderTransformOrigin="0.488,-0.346" FontSize="30" x:Name="passTxt" HorizontalContentAlignment="Center"/>
-        <TextBox HorizontalAlignment="Left" Height="60" Margin="308,196,0,163" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="182" MaxLength="1" x:Name="txtBox"/>
-        <Button Content="Sprawdź" HorizontalAlignment="Left" Height="68" Margin="308,275,0,0" VerticalAlignment="Top" Width="182" FontSize="20" Click="CheckLetter"/>
+        <Label Content="&lt;tu wyświetli się hasło&gt;" HorizontalAlignment="Left" Height="56" Margin="10,134,0,229" VerticalAlignment="Center" Width="772" RenderTransformOrigin="0.488,-0.346" FontSize="30" x:Name="passTxt" HorizontalContentAlignment="Center"/>
+        <Button Content="a" HorizontalAlignment="Left" Height="55" Margin="25,195,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="b" HorizontalAlignment="Left" Height="55" Margin="101,195,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="c" HorizontalAlignment="Left" Height="55" Margin="177,195,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="d" HorizontalAlignment="Left" Height="55" Margin="252,195,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="e" HorizontalAlignment="Left" Height="55" Margin="328,195,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="f" HorizontalAlignment="Left" Height="55" Margin="404,195,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="g" HorizontalAlignment="Left" Height="55" Margin="477,195,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="h" HorizontalAlignment="Left" Height="55" Margin="552,195,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="i" HorizontalAlignment="Left" Height="55" Margin="628,195,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="j" HorizontalAlignment="Left" Height="55" Margin="704,195,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="k" HorizontalAlignment="Left" Height="55" Margin="25,255,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="l" HorizontalAlignment="Left" Height="55" Margin="101,255,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="m" HorizontalAlignment="Left" Height="55" Margin="177,255,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="n" HorizontalAlignment="Left" Height="55" Margin="252,255,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="o" HorizontalAlignment="Left" Height="55" Margin="328,255,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="p" HorizontalAlignment="Left" Height="55" Margin="404,255,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="r" HorizontalAlignment="Left" Height="55" Margin="477,255,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="s" HorizontalAlignment="Left" Height="55" Margin="552,255,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="t" HorizontalAlignment="Left" Height="55" Margin="628,255,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="u" HorizontalAlignment="Left" Height="55" Margin="704,255,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="w" HorizontalAlignment="Left" Height="55" Margin="25,315,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="y" HorizontalAlignment="Left" Height="55" Margin="101,315,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="z" HorizontalAlignment="Left" Height="55" Margin="177,315,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="ą" HorizontalAlignment="Left" Height="55" Margin="252,315,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="ć" HorizontalAlignment="Left" Height="55" Margin="328,315,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="ę" HorizontalAlignment="Left" Height="55" Margin="404,315,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="ł" HorizontalAlignment="Left" Height="55" Margin="477,315,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="ń" HorizontalAlignment="Left" Height="55" Margin="552,315,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="ó" HorizontalAlignment="Left" Height="55" Margin="628,315,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="ś" HorizontalAlignment="Left" Height="55" Margin="704,315,0,0" VerticalAlignment="Top" Width="59" FontSize="20" Click="CheckLetter"/>
+        <Button Content="Zrestartuj" HorizontalAlignment="Left" Height="54" Margin="662,10,0,0" VerticalAlignment="Top" Width="120" Click="RestartGame" FontSize="18"/>
+        <Image HorizontalAlignment="Left" Height="108" Margin="303,21,0,0" VerticalAlignment="Top" Width="208" x:Name="img" Source="blank.png"/>
     </Grid>
 </Window>

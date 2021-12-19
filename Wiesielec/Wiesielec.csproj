@@ -95,5 +95,23 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\blank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\stickman1.png" />
+    <Resource Include="Resources\Images\stickman10.png" />
+    <Resource Include="Resources\Images\stickman2.png" />
+    <Resource Include="Resources\Images\stickman3.png" />
+    <Resource Include="Resources\Images\stickman4.png" />
+    <Resource Include="Resources\Images\stickman5.png" />
+    <Resource Include="Resources\Images\stickman6.png" />
+    <Resource Include="Resources\Images\stickman7.png" />
+    <Resource Include="Resources\Images\stickman8.png" />
+    <Resource Include="Resources\Images\stickman9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="blank.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
