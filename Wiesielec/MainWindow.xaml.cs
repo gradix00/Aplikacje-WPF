@@ -52,6 +52,10 @@ namespace Wiesielec
             }
 
             RefreshPasswordAndStickman();
+
+            var btn_list = parent.Children.OfType<Button>().ToList();
+            foreach (var btn in btn_list) btn.IsEnabled = true;
+            
         }
 
         private string RandomWord()
@@ -112,6 +116,7 @@ namespace Wiesielec
 
             //call to refresh data
             RefreshPasswordAndStickman();
+            (sender as Button).IsEnabled = false;
         }
 
         private void RestartGame(object sender, RoutedEventArgs e) => StartGame();

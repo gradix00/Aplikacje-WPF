@@ -13,3 +13,7 @@ F:\Unity\projekty\Aplikacje-WPF\Wiesielec\obj\Debug\Wiesielec.csproj.GenerateRes
 F:\Unity\projekty\Aplikacje-WPF\Wiesielec\obj\Debug\Wiesielec.csproj.CoreCompileInputs.cache
 F:\Unity\projekty\Aplikacje-WPF\Wiesielec\obj\Debug\Wiesielec.exe
 F:\Unity\projekty\Aplikacje-WPF\Wiesielec\obj\Debug\Wiesielec.pdb
+F:\Unity\projekty\Aplikacje-WPF\Wiesielec\bin\Debug\Wiesielec.exe.manifest
+F:\Unity\projekty\Aplikacje-WPF\Wiesielec\bin\Debug\Wiesielec.application
+F:\Unity\projekty\Aplikacje-WPF\Wiesielec\obj\Debug\Wiesielec.exe.manifest
+F:\Unity\projekty\Aplikacje-WPF\Wiesielec\obj\Debug\Wiesielec.application
