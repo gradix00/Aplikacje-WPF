@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("blank.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("wisielec.ico")]
 
 
