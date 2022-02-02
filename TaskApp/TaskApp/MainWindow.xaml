@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" ResizeMode="CanResize">
-    <Grid>
+        Title="Task App" Height="450" Width="800" ResizeMode="CanResize" SizeChanged="OnChangedSizeWindow">
+    <Grid x:Name="main">
+        <Button Content="Dodaj zadanie" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" Background="Black" Click="CreateNewTask" Grid.Column="0"/>
+        <Button Content="Usuń" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" Background="Black" Click="ClearAllTasks" Grid.Column="1"/>
+        <ListBox VerticalContentAlignment="Top" Height="Auto" x:Name="listTask" Grid.Row="1"/>
         <Grid.RowDefinitions>
-            <RowDefinition Height="43*" />
-            <RowDefinition Height="222*" />
-            <RowDefinition Height="35*" />
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="200*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="113*" />
-            <ColumnDefinition Width="176*" />
-            <ColumnDefinition Width="111*" />
+            <ColumnDefinition Width="700"/>
+            <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
-        <Button Content="TEST" Grid.Column="2" Margin="0,62,0,0" Grid.RowSpan="2" />
     </Grid>
 </Window>
