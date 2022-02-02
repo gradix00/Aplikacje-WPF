@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "270a487d-b2cd-43e7-9dda-8d75cd21f1d7": {
+      "ProjectGuid": "270a487d-b2cd-43e7-9dda-8d75cd21f1d7",
+      "DisplayName": "TaskApp",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

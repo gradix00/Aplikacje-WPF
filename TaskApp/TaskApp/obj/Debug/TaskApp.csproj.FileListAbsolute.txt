@@ -1,0 +1,16 @@
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\TaskApp\bin\Debug\TaskApp.exe.config
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\TaskApp\bin\Debug\TaskApp.exe
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\TaskApp\bin\Debug\TaskApp.pdb
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\TaskApp\obj\Debug\TaskApp.csproj.AssemblyReference.cache
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\TaskApp\obj\Debug\TaskApp.csproj.SuggestedBindingRedirects.cache
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\TaskApp\obj\Debug\MainWindow.g.cs
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\TaskApp\obj\Debug\App.g.cs
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\TaskApp\obj\Debug\TaskApp_MarkupCompile.cache
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\TaskApp\obj\Debug\TaskApp_MarkupCompile.lref
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\TaskApp\obj\Debug\MainWindow.baml
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\TaskApp\obj\Debug\TaskApp.g.resources
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\TaskApp\obj\Debug\TaskApp.Properties.Resources.resources
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\TaskApp\obj\Debug\TaskApp.csproj.GenerateResource.cache
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\TaskApp\obj\Debug\TaskApp.csproj.CoreCompileInputs.cache
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\TaskApp\obj\Debug\TaskApp.exe
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\TaskApp\obj\Debug\TaskApp.pdb
