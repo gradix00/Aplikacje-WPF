@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="Task App" Height="450" Width="800" ResizeMode="CanResize" SizeChanged="OnChangedSizeWindow">
     <Grid x:Name="main">
-        <Button Content="Dodaj zadanie" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" Background="Black" Click="OpenMenuCreationTask" Grid.Column="0"/>
-        <Button Content="Odśwież" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" Background="Black" Click="RefreshTask" Grid.Column="1"/>
-        <Button Content="Usuń" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="White" Background="Black" Click="ClearAllTasks" Grid.Column="2"/>
-        <ListBox VerticalContentAlignment="Top" Height="Auto" x:Name="listTask" Grid.Row="1" Grid.ColumnSpan="3"/>
+        <Button Content="Dodaj zadanie" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="LightGoldenrodYellow" Background="Black" Click="OpenMenuCreationTask" Grid.Column="0"/>
+        <Button Content="Odśwież" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="LightGoldenrodYellow" Background="Black" Click="RefreshTask" Grid.Column="1"/>
+        <Button Content="Usuń" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="LightGoldenrodYellow" Background="Black" Click="ClearAllTasks" Grid.Column="2"/>
+        <ListBox VerticalContentAlignment="Top" Height="Auto" x:Name="listTask" Background="LightGoldenrodYellow" Grid.Row="1" Grid.ColumnSpan="3"/>
         <Grid.RowDefinitions>
             <RowDefinition Height="30*"/>
             <RowDefinition Height="200*"/>
