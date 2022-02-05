@@ -1,0 +1,8 @@
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\maxLiczba\bin\Debug\maxLiczba.exe.config
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\maxLiczba\bin\Debug\maxLiczba.exe
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\maxLiczba\bin\Debug\maxLiczba.pdb
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\maxLiczba\obj\Debug\maxLiczba.csproj.AssemblyReference.cache
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\maxLiczba\obj\Debug\maxLiczba.csproj.SuggestedBindingRedirects.cache
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\maxLiczba\obj\Debug\maxLiczba.csproj.CoreCompileInputs.cache
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\maxLiczba\obj\Debug\maxLiczba.exe
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\maxLiczba\obj\Debug\maxLiczba.pdb

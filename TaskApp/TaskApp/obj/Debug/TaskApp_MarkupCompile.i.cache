@@ -9,12 +9,12 @@ TaskApp
 none
 false
 DEBUG;TRACE
-G:\Unity\projekty\Aplikacje-WPF\TaskApp\TaskApp\App.xaml
-1219584333
+G:\Unity\projekty\Aplikacje-WPF\TaskApp\TaskApp\PagesApp\App.xaml
+2-1995975271
 
-6-502434485
-13-1310406943
-MainWindow.xaml;
+10-698128792
+19119631859
+PagesApp\CreatorEdit.xaml;PagesApp\MainWindow.xaml;
 
 True
 
