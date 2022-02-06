@@ -74,10 +74,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="PagesApp\CreatorEdit.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="PagesApp\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -85,9 +81,6 @@
     <Compile Include="PagesApp\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="PagesApp\CreatorEdit.xaml.cs">
-      <DependentUpon>CreatorEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="PagesApp\DataTask.cs" />
     <Compile Include="PagesApp\IManageData.cs" />

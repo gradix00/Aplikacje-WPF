@@ -23,14 +23,21 @@ namespace TaskApp.PagesApp
                 if (conn.State == System.Data.ConnectionState.Open)
                 {
                     SQLiteCommand command = conn.CreateCommand();
-                    command.CommandText = $"SELECT * FROM Tasks";
+                    command.CommandText = $"SELECT * FROM Tasks WHERE id={id}";
                     command.ExecuteNonQuery();
                     SQLiteDataReader readData = command.ExecuteReader();
 
-                    while (readData.Read())
-                        Console.WriteLine(readData["Title"].ToString());
-                    conn.Close();
-                    return new DataTask();
+                    if (readData.Read())
+                    {
+                        bool done = (bool)readData["done"] ? true : false;
+                        return new DataTask(0, readData["title"].ToString(),
+                            readData["description"].ToString(), readData["creation_data"].ToString(), done);
+                    }
+                    else
+                    {
+                        conn.Close();
+                        return new DataTask();
+                    }
                 }
                 else
                 {
@@ -44,10 +51,9 @@ namespace TaskApp.PagesApp
 
         public bool SetData(string cm = "CREATE DATABASE tasks;")
         {
-            string sourceDb = nameDatabase;
-            if(!File.Exists(sourceDb)) File.Create(sourceDb);
+            if(!File.Exists(nameDatabase)) File.Create(nameDatabase);
 
-            SQLiteConnection conn = new SQLiteConnection("URI=file:" + sourceDb);
+            SQLiteConnection conn = new SQLiteConnection("URI=file:" + nameDatabase);
             conn.Open();
 
             if (conn.State == System.Data.ConnectionState.Open)
@@ -63,6 +69,35 @@ namespace TaskApp.PagesApp
                 conn.Close();
                 return false;
             }
+        }
+
+        public int GetNumberRows(string nameTable = "Tasks")
+        {
+            if (File.Exists(nameDatabase))
+            {
+                SQLiteConnection conn = new SQLiteConnection("URI=file:" + nameDatabase);
+                conn.Open();
+
+                if (conn.State == System.Data.ConnectionState.Open)
+                {
+                    SQLiteCommand command = conn.CreateCommand();
+                    command.CommandText = $"SELECT COUNT(title) FROM Tasks";
+                    command.ExecuteNonQuery();
+                    SQLiteDataReader readData = command.ExecuteReader();
+
+                    if (readData.Read())
+                        return readData.GetInt32(0);
+                    else
+                        return 0;
+                }
+                else
+                {
+                    conn.Close();
+                    return 0;
+                }
+            }
+            else
+                return 0;
         }
     }
 }

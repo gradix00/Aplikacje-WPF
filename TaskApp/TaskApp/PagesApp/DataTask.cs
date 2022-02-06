@@ -8,13 +8,13 @@ namespace TaskApp.PagesApp
 {
     public struct DataTask
     {
-        public DataTask(int Id, string Title, string Description, string CreationData, int TimePeriod)
+        public DataTask(int Id, string Title, string Description, string CreationData, bool Done)
         {
             this.Id = Id;
             this.Title = Title;
             this.Description = Description;
             this.CreationData = CreationData;
-            this.TimePeriod = TimePeriod;
+            this.Done = Done;
         }
 
         /// <summary>
@@ -40,6 +40,6 @@ namespace TaskApp.PagesApp
         /// <summary>
         /// Time period pushing notify task in local database
         /// </summary>
-        public int TimePeriod { get; set; }
+        public bool Done { get; set; }
     }
 }

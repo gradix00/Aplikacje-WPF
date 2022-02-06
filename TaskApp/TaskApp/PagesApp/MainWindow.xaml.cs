@@ -21,7 +21,7 @@ namespace TaskApp.PagesApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string savePath = "G:/TaskApp/Data/";
+        public string savePath = "G:/TaskApp/Data/", nameFile = "Database_tasks";
         protected int nrTask = 0;
         int sizeCol;
         private List<Grid> tasks = new List<Grid>();
@@ -30,39 +30,106 @@ namespace TaskApp.PagesApp
         {
             InitializeComponent();
             OnChangedSizeWindow(null, null);
-            //RefreshTask(null, null);
             InitializeSettings();
 
-            LocalDatabase database = new LocalDatabase($"{savePath}Database_tasks");
-            Console.WriteLine(database.SetData($@"CREATE TABLE IF NOT EXISTS Tasks (
-    id int NOT NULL PRIMARY KEY,
+            LocalDatabase database = new LocalDatabase($"{savePath}{nameFile}");
+            if (!database.SetData($@"CREATE TABLE IF NOT EXISTS Tasks (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     creation_data TEXT NOT NULL,
     title TEXT NOT NULL,
     description text NOT NULL,
-    time_period int NOT NULL
-)"));
+    done bool NOT NULL
+)"))
+            {
+                MessageBox.Show("Problem z inicjalizacją bazy danych. Spróbuj uruchomić aplikacje raz jeszcze lub zmienić ścieżke zapisu!", "Błąd aplikacji!");
+                savePath = null;
+            }
+            else
+            {
+                RefreshTask(null, null);                
+            }
         }
 
         private void InitializeSettings()
         {
             //to change!
             if (!Directory.Exists(savePath)) Directory.CreateDirectory(savePath);
+
+            if (!File.Exists(savePath + nameFile)) File.Create(savePath+nameFile);
         }
 
         private void ClearAllTasks(object sender, RoutedEventArgs e)
         {
+            var btn = sender as Button;
+            if (btn?.CommandParameter.ToString() == "deleteTasks")
+                DeleteAllTasks();
+
+            //clearing tasks in UI
             tasks.Clear();
             columnsData.Clear();
             listTask.ItemsSource = null;
             nrTask = 0;
         }
 
+        private void DeleteAllTasks()
+        {
+            if (savePath != "")
+            {
+                LocalDatabase database = new LocalDatabase($"{savePath}{nameFile}");
+                if (database.SetData("DELETE FROM Tasks"))
+                    MessageBox.Show("Pomyślnie usunięto wszystkie zadania!");
+                else
+                    MessageBox.Show("Niestety nie można usunąć zadań :(");
+
+                deleteBtn.IsEnabled = false;
+            }
+            else
+                MessageBox.Show("Problem z inicjalizacją bazy danych. Spróbuj uruchomić aplikacje raz jeszcze lub zmienić ścieżke zapisu!", "Błąd aplikacji!");
+        }
+
         private void RefreshTask(object sender, RoutedEventArgs e)
         {
-            LocalDatabase database = new LocalDatabase($"{savePath}Database_tasks");
-            
-            int x = 0;
-            Console.WriteLine(database.GetData(0).Title);
+            if (savePath != "")
+            {
+                ClearAllTasks(null, null);
+                LocalDatabase database = new LocalDatabase($"{savePath}{nameFile}");
+
+                int x = 0;
+                Console.WriteLine("liczba: " + database.GetNumberRows("Tasks"));
+                while (x < database.GetNumberRows("Tasks"))
+                {
+                    CreateTaskUI(database.GetData(x));
+                    Console.WriteLine($"title: {database.GetData(x).Title}, des: {database.GetData(x).Description}");
+                    x++;
+                }
+
+                if (database.GetNumberRows() > 0) deleteBtn.IsEnabled = true;
+                else deleteBtn.IsEnabled = false;
+            }
+            else
+                MessageBox.Show("Problem z inicjalizacją bazy danych. Spróbuj uruchomić aplikacje raz jeszcze lub zmienić ścieżke zapisu!", "Błąd aplikacji!");
+        }
+
+        private void AddNewTask(object sender, RoutedEventArgs e)
+        {
+            if (savePath != "")
+            {
+                LocalDatabase database = new LocalDatabase($"{savePath}{nameFile}");
+                Console.WriteLine(database.GetNumberRows() + 1);
+                string query = $"INSERT INTO Tasks(id, creation_data, title, description, done) VALUES({database.GetNumberRows()+1}, '06.02.2022', 'tytuł', 'opis', false)";
+                if (database.SetData(query))
+                    MessageBox.Show("Pomyślnie dodano nowe zadanie!");
+                else
+                    MessageBox.Show("Nie można dodać zadania :(");
+
+                RefreshTask(null, null);
+                creatorTask.Visibility = Visibility.Hidden;
+                this.Width = 800;
+                this.Height = 450;
+                this.ResizeMode = ResizeMode.CanResize;
+            }
+            else
+                MessageBox.Show("Problem z inicjalizacją bazy danych. Spróbuj uruchomić aplikacje raz jeszcze lub zmienić ścieżke zapisu!", "Błąd aplikacji!");
         }
 
         private void CreateTaskUI(DataTask data)
@@ -136,10 +203,23 @@ namespace TaskApp.PagesApp
             listTask.ItemsSource = tasks.ToArray();
         }
 
-        private void OpenMenuCreationTask(object sender, RoutedEventArgs e)
+        private void MenuCreationTask(object sender, RoutedEventArgs e)
         {
-            CreatorEdit creatorTask = new CreatorEdit();
-            this.Content = creatorTask;
+            var btn = sender as Button;
+            if (btn.CommandParameter.ToString() == "openPanel")
+            {
+                creatorTask.Visibility = Visibility.Visible;
+                this.Width = 810;
+                this.Height = 465;
+                this.ResizeMode = ResizeMode.NoResize;
+            }
+            else
+            {
+                creatorTask.Visibility = Visibility.Hidden;
+                this.Width = 800;
+                this.Height = 450;
+                this.ResizeMode = ResizeMode.CanResize;
+            }
         }
 
         private void OnChangedSizeWindow(object sender, SizeChangedEventArgs e)

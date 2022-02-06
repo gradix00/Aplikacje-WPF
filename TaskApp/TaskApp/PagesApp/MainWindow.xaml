@@ -3,14 +3,36 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TaskApp"
+        xmlns:local="clr-namespace:TaskApp.PagesApp"
         mc:Ignorable="d"
         Title="Task App" Height="450" Width="800" ResizeMode="CanResize" SizeChanged="OnChangedSizeWindow">
     <Grid x:Name="main">
-        <Button Content="Dodaj zadanie" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="LightGoldenrodYellow" Background="Black" Click="OpenMenuCreationTask" Grid.Column="0"/>
+        <Button Content="Dodaj zadanie" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="LightGoldenrodYellow" Background="Black" Click="MenuCreationTask" CommandParameter="openPanel" Grid.Column="0"/>
         <Button Content="Odśwież" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="LightGoldenrodYellow" Background="Black" Click="RefreshTask" Grid.Column="1"/>
-        <Button Content="Usuń" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="LightGoldenrodYellow" Background="Black" Click="ClearAllTasks" Grid.Column="2"/>
+        <Button Content="Usuń" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="LightGoldenrodYellow" Background="Black" Click="ClearAllTasks" CommandParameter="deleteTasks" Grid.Column="2" x:Name="deleteBtn"/>
         <ListBox VerticalContentAlignment="Top" Height="Auto" x:Name="listTask" Background="LightGoldenrodYellow" Grid.Row="1" Grid.ColumnSpan="3"/>
+        <Canvas Grid.ColumnSpan="3" Background="White" Visibility="Visible" x:Name="creatorTask" Grid.RowSpan="2">
+            <Grid Width="800" Height="434">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200*"/>
+                    <RowDefinition Height="200*"/>
+                    <RowDefinition Height="200*"/>
+                    <RowDefinition Height="200*"/>
+                    <RowDefinition Height="200*"/>
+                    <RowDefinition Height="200*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200*"/>
+                    <ColumnDefinition Width="200*"/>
+                    <ColumnDefinition Width="200*"/>
+                    <ColumnDefinition Width="200*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Gotowe" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="LightGoldenrodYellow" Background="Black" Click="AddNewTask" CommandParameter="closePanel" Grid.Column="3" Grid.Row="5"/>
+                <Button Content="Anuluj" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="LightGoldenrodYellow" Background="Black" Click="MenuCreationTask" CommandParameter="closePanel" Grid.Column="2" Grid.Row="5"/>
+                <TextBox Text="Tytuł zadania" FontSize="20" FontWeight="Bold" TextWrapping="Wrap" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,10,0,0" Grid.Column="1" Grid.ColumnSpan="2" x:Name="title"/>
+                <TextBox Text="Opis zadania" FontSize="20" FontWeight="Bold" TextWrapping="Wrap" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Margin="0,35,0,0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="1" x:Name="description"/>
+            </Grid>
+        </Canvas>
         <Grid.RowDefinitions>
             <RowDefinition Height="30*"/>
             <RowDefinition Height="200*"/>
