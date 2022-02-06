@@ -11,7 +11,7 @@
         <Button Content="Odśwież" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="LightGoldenrodYellow" Background="Black" Click="RefreshTask" Grid.Column="1"/>
         <Button Content="Usuń" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="LightGoldenrodYellow" Background="Black" Click="ClearAllTasks" CommandParameter="deleteTasks" Grid.Column="2" x:Name="deleteBtn"/>
         <ListBox VerticalContentAlignment="Top" Height="Auto" x:Name="listTask" Background="LightGoldenrodYellow" Grid.Row="1" Grid.ColumnSpan="3"/>
-        <Canvas Grid.ColumnSpan="3" Background="White" Visibility="Visible" x:Name="creatorTask" Grid.RowSpan="2">
+        <Canvas Grid.ColumnSpan="3" Background="White" Visibility="Hidden" x:Name="creatorTask" Grid.RowSpan="2">
             <Grid Width="800" Height="434">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="200*"/>

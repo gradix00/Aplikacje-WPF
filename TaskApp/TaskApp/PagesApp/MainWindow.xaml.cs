@@ -34,7 +34,7 @@ namespace TaskApp.PagesApp
 
             LocalDatabase database = new LocalDatabase($"{savePath}{nameFile}");
             if (!database.SetData($@"CREATE TABLE IF NOT EXISTS Tasks (
-    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     creation_data TEXT NOT NULL,
     title TEXT NOT NULL,
     description text NOT NULL,
@@ -54,8 +54,6 @@ namespace TaskApp.PagesApp
         {
             //to change!
             if (!Directory.Exists(savePath)) Directory.CreateDirectory(savePath);
-
-            if (!File.Exists(savePath + nameFile)) File.Create(savePath+nameFile);
         }
 
         private void ClearAllTasks(object sender, RoutedEventArgs e)
@@ -94,11 +92,12 @@ namespace TaskApp.PagesApp
                 ClearAllTasks(null, null);
                 LocalDatabase database = new LocalDatabase($"{savePath}{nameFile}");
 
-                int x = 0;
+                int x = 10;
                 Console.WriteLine("liczba: " + database.GetNumberRows("Tasks"));
-                while (x < database.GetNumberRows("Tasks"))
+                while (x < database.GetNumberRows("Tasks") + 10)
                 {
                     CreateTaskUI(database.GetData(x));
+                    Console.WriteLine("liczba wierszy: " + database.GetNumberRows("Tasks"));
                     Console.WriteLine($"title: {database.GetData(x).Title}, des: {database.GetData(x).Description}");
                     x++;
                 }
@@ -115,8 +114,7 @@ namespace TaskApp.PagesApp
             if (savePath != "")
             {
                 LocalDatabase database = new LocalDatabase($"{savePath}{nameFile}");
-                Console.WriteLine(database.GetNumberRows() + 1);
-                string query = $"INSERT INTO Tasks(id, creation_data, title, description, done) VALUES({database.GetNumberRows()+1}, '06.02.2022', 'tytuł', 'opis', false)";
+                string query = $"INSERT INTO Tasks(creation_data, title, description, done) VALUES('{DateTime.UtcNow}', '{title.Text}', '{description.Text}', false)";
                 if (database.SetData(query))
                     MessageBox.Show("Pomyślnie dodano nowe zadanie!");
                 else
@@ -139,13 +137,13 @@ namespace TaskApp.PagesApp
             rowData.Height = new GridLength(35);
 
             //creating columns for data sqlite
-            ColumnDefinition columnDate = new ColumnDefinition();
-            columnDate.Width = new GridLength(sizeCol);
-            columnsData.Add(columnDate);
-
             ColumnDefinition columnTitle = new ColumnDefinition();
             columnTitle.Width = new GridLength(sizeCol);
             columnsData.Add(columnTitle);
+
+            ColumnDefinition columnStatus = new ColumnDefinition();
+            columnStatus.Width = new GridLength(sizeCol);
+            columnsData.Add(columnStatus);
 
             ColumnDefinition columnDetails = new ColumnDefinition();
             columnDetails.Width = new GridLength(sizeCol / 2);
@@ -160,42 +158,48 @@ namespace TaskApp.PagesApp
             bgTask.Height = 50f;
             bgTask.HorizontalAlignment = HorizontalAlignment.Stretch;
             bgTask.RowDefinitions.Add(rowData);
-            bgTask.ColumnDefinitions.Add(columnDate);
             bgTask.ColumnDefinitions.Add(columnTitle);
+            bgTask.ColumnDefinitions.Add(columnStatus);
             bgTask.ColumnDefinitions.Add(columnEdit);
             bgTask.ColumnDefinitions.Add(columnDetails);
 
-            //assign date time to column 1
-            DateTime dateTime = DateTime.UtcNow;
-
-            Label date = new Label();
-            date.Content = data.CreationData;
-            date.FontSize = 16;
-            date.FontWeight = FontWeights.Bold;
-            Grid.SetColumn(date, 0);
-            bgTask.Children.Add(date);
-
-            //assign title to column 2
-            Label title = new Label();
-            title.Content = data.Title;
-            title.FontSize = 16;
-            title.FontWeight = FontWeights.Bold;
-            Grid.SetColumn(title, 1);
+            //assign title to column 1
+            Label title = new Label
+            {
+                Content = data.Title,
+                FontSize = 16,
+                FontWeight = FontWeights.Bold
+            };
+            Grid.SetColumn(title, 0);
             bgTask.Children.Add(title);
 
+            //assign status (done) to column 2
+            Label status = new Label
+            {
+                Content = data.Done ? "zakończone" : "w trakcie",
+                FontSize = 16,
+                FontWeight = FontWeights.Bold
+            };
+            Grid.SetColumn(status, 1);
+            bgTask.Children.Add(status);
+
             //assign btn details to child bg task
-            Button btnDetails = new Button();
-            btnDetails.Content = "Szczegóły";
-            btnDetails.BorderThickness = new Thickness(1);
-            btnDetails.BorderBrush = new SolidColorBrush(Colors.Black);
+            Button btnDetails = new Button
+            {
+                Content = "Szczegóły",
+                BorderThickness = new Thickness(1),
+                BorderBrush = new SolidColorBrush(Colors.Black)
+            };
             Grid.SetColumn(btnDetails, 2);
             bgTask.Children.Add(btnDetails);
 
             //assign btn edit to child bg task
-            Button btnEdit = new Button();
-            btnEdit.Content = "Edytuj";
-            btnEdit.BorderThickness = new Thickness(1);
-            btnEdit.BorderBrush = new SolidColorBrush(Colors.Black);
+            Button btnEdit = new Button
+            {
+                Content = "Edytuj",
+                BorderThickness = new Thickness(1),
+                BorderBrush = new SolidColorBrush(Colors.Black)
+            };
             Grid.SetColumn(btnEdit, 3);
             bgTask.Children.Add(btnEdit);
 
